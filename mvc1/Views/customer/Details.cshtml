@@ -1,0 +1,25 @@
+﻿@model mvc1.Models.customer
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Details</h2>
+@if(Model!=null)
+{
+    <h2>@Model.CName</h2>
+    <ul>
+        <li>@Model.BirthDate.Value.ToLongDateString()</li>
+        <li>@Model.Gender</li>
+        <li>@Model.City</li>
+
+        <li>@Model.MembershipType.Duration</li>
+        <li>@Model.MembershipType.SignUpFee</li>
+        <li>@Model.MembershipType.Discount%</li>
+    </ul>
+}
+else
+{
+    <text>No record exist</text>
+}
+    <h3>@Html.ActionLink("Back to list", "index", "customer")</h3>

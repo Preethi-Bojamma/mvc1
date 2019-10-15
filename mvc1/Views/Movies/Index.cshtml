@@ -1,0 +1,56 @@
+﻿@model List<mvc1.Models.MovieB>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/m1.jpg" width="300" height="300" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/m2.jpg"  width="300" height="300" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/m3.jpg"  width="300" height="300" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/m4.jpg"  width="300" height="300" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/m5.jpg"  width="300" height="300" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/m6.jpg"  width="300" height="300" class="d-block w-100" alt="...">
+        </div>
+    </div>
+</div>
+<h3>@Html.ActionLink("New Movie","Create","Movies")</h3>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre Type</th>
+        <th>AvailableStock</th>
+
+        @*<th>Release Date</th>
+        <th>Genre</th>*@
+
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.ID</td>
+            @*<td>@m.Name</td>
+                <td>@m.Release Date</td>
+                <td>@m.Genre</td>*@
+            <td>@Html.ActionLink(m.Name, "Details", "Movies", new { id = m.ID }, new { @class = "btn btn-link" })</td>
+            <td>@m.Genre.Name</td>
+            <td>@m.AvailableStock</td>
+        </tr>
+    }
+</table>
+
+

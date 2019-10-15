@@ -1,0 +1,37 @@
+﻿@model List<mvc1.Models.customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Details</h2>
+<h3>@Html.ActionLink("New Customer","Create","customer")</h3>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>Membership Type</th>
+        <th>Edit Option</th>
+        <th>Delete Option</th>
+        @*<th>Birth Date</th>
+            <th>Gender</th>*@
+
+    </tr>
+    @foreach (var customer in Model)
+    {
+    <tr>
+        <td>@customer.ID</td>
+        @*<td>@customer.CName</td>
+        <td>@customer.BirthDate</td>
+        <td>@customer.Gender</td>*@
+        <td>@Html.ActionLink(customer.CName, "Details", "customer", new { id = customer.ID }, new { @class = "btn btn-link" })</td>
+        <td>@customer.MembershipType.Type</td>
+
+        <td>@Html.ActionLink("Edit", "Edit", "customer", new { id = customer.ID }, new { @class = "btn btn-secondary" })</td>
+        <td>@Html.ActionLink("Delete", "Delete", "customer", new { id = customer.ID }, new { @class = "btn btn-secondary" })</td>
+    </tr>
+    }
+    
+</table> 
+
+

@@ -1,0 +1,20 @@
+﻿@model mvc1.Models.MovieB
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+@if (Model != null)
+{
+    <h2>@Model.Name</h2>
+    <ul>
+        <li>@Model.ReleaseDate.ToLongDateString()</li>
+        @*<li>@Model.Genre</li>*@
+    </ul>
+}
+else
+{
+    <text>No record exist</text>
+}
+

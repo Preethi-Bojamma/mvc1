@@ -1,0 +1,17 @@
+﻿@model mvc1.ViewModel.MovieCustomerViewModel
+@{
+    ViewBag.Title = "CDisplay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>CDisplay </br>CustomerName:</h2>*@
+<font color="blue">
+    <h2>@Model.cm.CName</h2>
+    <ul>
+        @foreach (var m in Model.mb)
+        {
+            <li>@m.Name</li>
+        }
+        </ul>
+        
+</font>
